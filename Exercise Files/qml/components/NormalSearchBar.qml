@@ -34,6 +34,12 @@ Rectangle {
             height: 24
             radius: height / 2
 
+            RoundProfilePic {
+                anchors.fill: parent
+                source: "../../images/prof-pic.jpg"
+            }
+
+
         }
 
     }
