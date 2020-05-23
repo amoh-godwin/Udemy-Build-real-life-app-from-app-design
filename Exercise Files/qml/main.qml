@@ -10,7 +10,7 @@ ApplicationWindow {
 
     FontLoader { id: mainFont; source: "../fonts/materialdesignicons-webfont.ttf"}
 
-    property var rand_color: ["dodgerblue", "#ff424c", "#00c1ed", "#ff9700", "#00a8b", "yellow", "#00ed06"]
+    property var rand_color: ["dodgerblue", "#ff424c", "#00c1ed", "#ff9700", "#00a8b0", "yellow", "#00ed06"]
 
     Rectangle {
         anchors.fill: parent
@@ -30,44 +30,31 @@ ApplicationWindow {
                 Layout.preferredHeight: 48
             }
 
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 24
-                Layout.topMargin: 16
-                Layout.bottomMargin: 4
-                color: "transparent"
+            Comp.DateHeader {}
 
-                Text {
-                    text: qsTr("Friday, 26")
-                    font.family: "Roboto"
-                    font.pixelSize: 21
-                    color: "white"
-                    renderType: Text.NativeRendering
-                }
+            Comp.NewTask { id: new_task }
 
-            }
-
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                color: "transparent"
-
-                ListView {
-                    id: lview
-                    anchors.fill: parent
-                    spacing: 12
-                    model: Comp.TaskModel {}
-                    delegate: Comp.Task {}
-                    section.property: "section"
-                    section.delegate: Comp.TaskSection {}
-                    clip: true
-                }
-
-            }
+            Comp.TaskView { id: taskview }
 
             Comp.ButtonPrimary {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 48
+
+                onClicked: {
+
+                    if (this.inserting) {
+                        new_task.section.text = ""
+                        new_task.title.text = ""
+                        new_task.detail.text = ""
+                        new_task.visible = false
+                        this.inserting = false
+
+                    } else {
+                        this.inserting = true
+                        new_task.visible = true
+                    }
+
+                }
 
             }
 

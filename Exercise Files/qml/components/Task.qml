@@ -1,6 +1,7 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
+import "." as Comp
 
 Component {
 
@@ -58,7 +59,7 @@ Component {
 
                     }
 
-                    IconicButton {
+                    Comp.IconicButton {
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         Layout.rightMargin: 18
                         color: "#727272"

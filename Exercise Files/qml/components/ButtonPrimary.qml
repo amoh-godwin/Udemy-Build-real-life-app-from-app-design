@@ -3,12 +3,16 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 
 Button {
+    id: btn
+
+    property bool inserting: false
 
     background: Rectangle {
         implicitWidth: 128
         implicitHeight: 48
         radius: 12
-        color: "#00a8b0"
+        border.color: btn.inserting ? "#00a8b0" : "transparent"
+        color: !btn.inserting ? "#00a8b0" : "transparent"
     }
 
     contentItem: Rectangle {
@@ -24,6 +28,7 @@ Button {
                 font.pixelSize: 22
                 text: "\uf415"
                 color: "white"
+                visible: !btn.inserting
             }
 
             Text {
@@ -32,7 +37,7 @@ Button {
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                color: "white"
+                color: btn.inserting ? "#00a8b0" : "white"
             }
 
         }

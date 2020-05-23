@@ -1,6 +1,7 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
+import "." as Comp
 
 Rectangle {
 
@@ -16,7 +17,7 @@ Rectangle {
             rightMargin: 18
         }
 
-        IconicButton {
+        Comp.IconicButton {
             text: "\uf35c"
             color: "white"
             textSize: 20
@@ -34,7 +35,7 @@ Rectangle {
             height: 24
             radius: height / 2
 
-            RoundProfilePic {
+            Comp.RoundProfilePic {
                 anchors.fill: parent
                 source: "../../images/prof-pic.jpg"
             }

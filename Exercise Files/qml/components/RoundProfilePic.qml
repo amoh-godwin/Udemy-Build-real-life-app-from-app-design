@@ -2,31 +2,29 @@ import QtQuick 2.10
 import QtGraphicalEffects 1.3
 
 Rectangle {
-    id: prop_parent
-    property url source: ""
+    id: rect
     color: "transparent"
 
+    property url source
 
     Image {
-        id: img
-        sourceSize: Qt.size(parent.width, parent.width)
-        source: prop_parent.source
+        id: img_src
+        sourceSize: Qt.size(parent.width, parent.height)
+        source: rect.source
+        smooth: true
         visible: false
     }
 
-    Image {
-        id: mask
-        sourceSize: Qt.size(parent.width, parent.width)
-        source: "../../images/mask-24.png"
-        visible: false
-    }
 
     OpacityMask {
         anchors.fill: parent
-        source: img
-        maskSource: mask
+        source: img_src
+        maskSource: Rectangle {
+            width: rect.width
+            height: rect.height
+            radius: width + height / 4
+        }
+
     }
-
-
 
 }

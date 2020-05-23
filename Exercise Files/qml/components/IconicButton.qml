@@ -8,7 +8,6 @@ Button {
     property int textSize: 12
 
     background: Rectangle {
-        implicitWidth: icb.contentItem.width
         implicitHeight: 48
         color: "transparent"
     }
