@@ -44,7 +44,7 @@ Rectangle {
                     Layout.leftMargin: 18
                     spacing: 0
 
-                    Comp.CustTextField {id: task_title}
+                    Comp.CustTextField {id: task_title; color: "white"}
 
                     Comp.CustTextField {
                         id: task_section
