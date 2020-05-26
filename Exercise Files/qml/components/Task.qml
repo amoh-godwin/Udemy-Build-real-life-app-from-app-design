@@ -88,6 +88,7 @@ Component {
                     selectByMouse: true
                     selectionColor: "orange"
                     selectedTextColor: "white"
+                    readOnly: true
                     padding: 0
                     topPadding: 6
                     font.pixelSize: 12
